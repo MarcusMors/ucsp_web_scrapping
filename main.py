@@ -3,7 +3,7 @@
 import time
 
 from playwright.sync_api import sync_playwright
-from selenium import webdriver
+from selenium_test import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -48,6 +48,7 @@ def get_academico_course_weights():
 
 def main():
     virtual_ucsp_login_url: str = "https://virtual.ucsp.edu.pe/login/index.php"
+    grade_report_url: str = "https://virtual.ucsp.edu.pe/grade/report/overview/index.php"
 
     user_info = {
       "id": "jose.vilca.campana@ucsp.edu.pe",
@@ -69,11 +70,38 @@ def main():
         page.locator('text=Siguiente').click()
         page.fill('input[type=password]', user_info["password"])
         page.locator('text=Siguiente').click()
-        html = page.inner_html("li[data-key=mycourses]")
-        print(html)
-        time.sleep(1000)
+
+        # html = page.inner_html("li[data-key=mycourses]")
+        # print(html)
+        # page.goto(grade_report_url)
+
+        # page.locator("a#action-menu-toggle-1").click()
+        # page.click("a.dropdown-toggle")
+
+        dropdown = page.locator("a.dropdown-toggle")
+        dropdown.click()
+        print("element clicked")
+        print("element")
+        print(dropdown.inner_html())
+        page.locator("text=Calificaciones").click()
+
+        # grades_anchor = page.locator('a.dropdown-item[aria-labelledby="actionmenuaction-4"] >> visible=false')
+        # page.locator("a.dropdown-item >> nth=")
+        # grades_anchor.click()
+        # course_trs = page.locator("tr", has=page.locator("a"))
+        # page.query_selector_all()
+        # course_trs = page.query_selector_all("tr")
+        # while(cour)
+        # html = courses_trs[0].inner_html()
+
+        # for course_tr in course_trs:
+        #     html = course_tr.inner_html('tr')
+        #     print(html)
+
+        time.sleep(100)
+        # time.sleep(1000)
 
 
 if __name__ == "__main__":
-    get_academico_course_weights()
-    # main()
+    # get_academico_course_weights()
+    main()

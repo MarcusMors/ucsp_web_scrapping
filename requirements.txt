@@ -2,7 +2,6 @@ beautifulsoup4==4.11.1
 flake8==4.0.1
 greenlet==1.1.2
 mccabe==0.6.1
-playwright==1.23.1
 pycodestyle==2.8.0
 pyee==8.1.0
 pyflakes==2.4.0

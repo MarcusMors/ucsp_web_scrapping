@@ -1,5 +1,8 @@
 # IDE/text editor config
 .vscode
+node_modules
+package-lock.json
+package.json
 
 # helpers, mock, aux
 *helper*

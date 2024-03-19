@@ -4,12 +4,13 @@ import time
 
 from playwright.sync_api import sync_playwright
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
+
+# from webdriver_manager.chrome import ChromeDriverManager
 
 # from http.server import executable
 # from turtle import ht
@@ -17,16 +18,19 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def get_academico_course_weights():
+
+    chrome_driver_path: str = "./chromedriver/stable/chromedriver"
     ***REMOVED***
     ***REMOVED***
     ***REMOVED***
     }
 
-    academico_login_url: str = "https://academico.ucsp.edu.pe/"
-    academico_principal_url: str = "https://academico.ucsp.edu.pe/principal.html"
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    academic_login_url: str = "https://academico.ucsp.edu.pe/"
+    # academic_principal_url: str = "https://academico.ucsp.edu.pe/principal.html"
+    # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(executable_path=chrome_driver_path)
     driver.implicitly_wait(10)
-    driver.get(academico_login_url)
+    driver.get(academic_login_url)
     driver.find_element(By.XPATH, '//input[@id="txt_usr"]').send_keys(user_info["id"])
     password_field = driver.find_element(By.XPATH, '//input[@id="txt_pwd"]')
     password_field.send_keys(user_info["password"])

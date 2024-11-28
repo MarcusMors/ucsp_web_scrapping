@@ -1,3 +1,7 @@
+# Deleting info
+sensitive-info.txt
+myenv
+
 # IDE/text editor config
 .vscode
 node_modules
